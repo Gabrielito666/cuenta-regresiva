@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuenta Regresiva</title>
+    <style>
+        h1{
+            font-family: 'Courier New', Courier, monospace;
+            color: lightslategray;
+        }
+        body{
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            text-align: center;
+            background-color: orange;
+            height: 50vh;
+        }
+    </style>
+</head>
+<body>
+    <h1>Faltan <span></span> para febrero</h1>
+</body>
+<script>
+    const { floor } = Math;
+    const getDif = () =>
+    {
+        const [febr, today] = [new Date('2025/01/31'), new Date()];
+        const diffSeconds = floor((febr-today)/1000);
+        const diffMinutes = floor(diffSeconds/60)
+        const diffHours = floor(diffMinutes/60);
+        
+        return [floor(diffHours / 24), diffHours % 24, diffMinutes % 60, diffSeconds % 60];
+    }
+    const updateCount = () =>
+    {
+        const [ days, hours, minutes, seconds ] = getDif();
+        document.querySelector('span').innerHTML =
+            `${days} dias, ${hours} horas, ${minutes} minutos y ${seconds} segundos`
+        ;
+        setTimeout(updateCount, 1000);
+    }
+    updateCount();
+</script>
+</html>
