@@ -20,13 +20,13 @@
     </style>
 </head>
 <body>
-    <h1>Faltan <span></span> para febrero</h1>
+    <h1>Faltan <span></span> para el concierto de titulo</h1>
 </body>
 <script>
     const { floor } = Math;
     const getDif = () =>
     {
-        const [febr, today] = [new Date('2025/01/31'), new Date()];
+        const [febr, today] = [new Date('2025/01/10'), new Date()];
         const diffSeconds = floor((febr-today)/1000);
         const diffMinutes = floor(diffSeconds/60)
         const diffHours = floor(diffMinutes/60);
